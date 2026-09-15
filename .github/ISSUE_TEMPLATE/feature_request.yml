@@ -1,0 +1,76 @@
+name: Feature request
+description: Suggest a capability or workflow for CAD Agent.
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Feature requests help decide what CAD Agent supports next. Describing the real part or workflow
+        behind a request is the most useful thing you can include.
+
+        Please check the Roadmap first — your idea may already be planned.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Sketch geometry, dimensions or relations
+        - Features (extrudes, cuts, fillets, patterns, ...)
+        - Modifying existing models
+        - Natural-language planning
+        - Verification
+        - Export and file formats
+        - Assemblies or drawings
+        - Desktop app
+        - Command line
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What are you trying to design or automate, and what gets in the way today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed capability
+      description: What would you like CAD Agent to do? An example request in plain language is helpful.
+      placeholder: 'e.g. "Add a 2 degree draft to the outer walls of the housing."'
+    validations:
+      required: true
+
+  - type: textarea
+    id: design-intent
+    attributes:
+      label: Design intent
+      description: Which dimensions, relations or parameters should stay editable afterwards?
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Current workaround
+      description: How do you handle this today, in SOLIDWORKS or otherwise?
+
+  - type: input
+    id: solidworks-version
+    attributes:
+      label: SOLIDWORKS version you use
+      placeholder: e.g. SOLIDWORKS 2026
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues and the Roadmap for this request.
+          required: true
+        - label: I removed confidential data and models from this request.
+          required: true

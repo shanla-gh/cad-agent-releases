@@ -1,0 +1,121 @@
+name: Bug report
+description: Report something in CAD Agent that does not work as documented.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a problem.
+
+        **Security vulnerabilities must not be reported here** — see SECURITY.md.
+        Please do not attach proprietary CAD models, confidential drawings, credentials or API keys.
+
+  - type: input
+    id: cad-agent-version
+    attributes:
+      label: CAD Agent version
+      description: The version shown in CAD Agent or in the release you downloaded.
+      placeholder: e.g. 0.x.y
+    validations:
+      required: true
+
+  - type: input
+    id: solidworks-version
+    attributes:
+      label: SOLIDWORKS version and service pack
+      placeholder: e.g. SOLIDWORKS 2026 SP03.2
+    validations:
+      required: true
+
+  - type: input
+    id: windows-version
+    attributes:
+      label: Windows version
+      placeholder: e.g. Windows 11 23H2
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Connecting to SOLIDWORKS
+        - Planning (rule-based planner)
+        - Planning (language-model planner)
+        - Plan validation
+        - Building a part
+        - Modifying a part
+        - Verification
+        - Export (STEP)
+        - Files and document handling
+        - Desktop app
+        - Command line
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: request
+    attributes:
+      label: Request or plan
+      description: The exact natural-language request you entered, or the plan you ran (remove anything confidential).
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What you expected CAD Agent to do.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: What happened instead, including the job status and any error codes (for example `SW_SELECTION_COUNT_MISMATCH`).
+    validations:
+      required: true
+
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification report
+      description: The verification results shown after the job, if it ran.
+      render: text
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Start SOLIDWORKS
+        2. Connect CAD Agent
+        3. Enter the request above
+        4. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: log
+    attributes:
+      label: Job log excerpt
+      description: The relevant part of the job log, with anything confidential removed.
+      render: text
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues and this has not been reported.
+          required: true
+        - label: I checked Supported features, and this capability is listed as implemented.
+          required: true
+        - label: I removed confidential data, models and credentials from this report.
+          required: true

@@ -1,0 +1,51 @@
+# Operating system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Editor and IDE settings
+.vs/
+.vscode/
+.idea/
+*.swp
+*~
+
+# Local build or packaging output
+bin/
+obj/
+out/
+dist/
+artifacts/
+
+# Release binaries belong in GitHub Releases, not in the repository
+*.exe
+*.msi
+*.msix
+*.zip
+*.7z
+*.dll
+*.pdb
+
+# CAD models, exports and SOLIDWORKS temporary files
+*.sldprt
+*.SLDPRT
+*.sldasm
+*.SLDASM
+*.slddrw
+*.SLDDRW
+*.step
+*.STEP
+*.stp
+*.STP
+*.stl
+*.STL
+~$*
+
+# Logs and local configuration
+*.log
+*.jsonl
+.env
+.env.*
+*.local
