@@ -21,14 +21,11 @@ See [Supported features](docs/supported-features.md) for the full list and its l
   through GitHub Releases.
 - **Broader natural-language coverage.** Planning that uses more of the operation catalog reliably from
   plain-language requests, not only the plate family covered by the deterministic planner.
-- **Richer angle relationships.** Deriving angle parameters from one another, as lengths already can be.
 - **More face-relative termination.** Offset-from-face and curved target faces, where they can be
   verified to behave predictably.
 
 ## Planned
 
-- **Understanding existing models.** Reading parts that CAD Agent did not create, recognising their
-  features and dimensions, and making them safely editable.
 - **Assemblies and drawings.** Beyond single parts.
 - **Additional export formats**, such as STL.
 - **Additional feature vocabulary**, for example draft, variable-radius fillets and multi-direction

@@ -124,6 +124,24 @@ Modification follows the same path. CAD Agent opens the model, reads its state, 
 its named parameters, validates, executes, rebuilds and verifies — and saves the result as a new version so
 the model it started from is untouched.
 
+### A part CAD Agent did not create
+
+A part somebody else modelled brings two problems with it, and both are solved before anything is
+changed.
+
+Its dimensions have names the CAD system chose — `D1`, `D2`, and `D1` again in the next sketch — so a
+request cannot simply be matched against a name. CAD Agent reads the part first and works out which
+dimension a phrase such as "the hole diameter" means, using what the model reports: what each
+parameter measures, what kind of quantity it is, and which feature owns it. If the words fit exactly
+one dimension, that is the one changed. If they fit two, the request is **refused** and both are
+named with their current values. Choosing between them is not CAD Agent's decision to make, and a
+part that is quietly wrong is worse than a question.
+
+Then the edit itself never touches the file it read. The change is written to a new file, that file
+is reopened from disk and checked for the value that was asked for, and the original is verified to
+be byte-for-byte what it was before. Three separate answers to three separate questions: did the
+change happen, did it survive being saved, and is the part you started with still intact.
+
 ## Next
 
 - [Architecture](architecture.md) — the components and the boundaries between them

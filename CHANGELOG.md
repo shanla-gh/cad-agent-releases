@@ -33,6 +33,8 @@ notes for that build will state its exact scope and tested environment.
   perpendicular and tangent.
 - Origin anchoring of line endpoints, midpoints and circle or arc centres.
 - Global variables and dimensions derived from other dimensions.
+- Typed relationships between parameters: a length derived from a length, an angle derived from an
+  angle, with the offset in that kind's own unit. Deriving one kind from another is refused.
 - Sketch definition status (under, fully or over defined) reported for inspection.
 
 ### Features
@@ -46,9 +48,22 @@ notes for that build will state its exact scope and tested environment.
 ### Parameters and modification
 
 - Typed Length (mm), Angle (degrees) and Count parameters; values are never converted between kinds.
-- Parameter modification of models created by CAD Agent, saved as new versions.
+- Parameter modification, saved as new versions.
 - Model state inspection: features, parameters and their kinds, relations, bodies, bounding box and
   volume.
+
+### Working with parts CAD Agent did not create
+
+- Inspection of any SOLIDWORKS part: features classified by what they are, sketches attributed to the
+  features that consume them, every parameter with its kind and the name a request must use, and a
+  list of what could not be established. Saved to JSON for later comparison.
+- Deterministic resolution of a plain-language phrase against the model: "the hole diameter" becomes
+  one dimension, or a refusal that names every candidate with its current value.
+- Requests naming something no operation can change - a material, a mass, a tolerance, an appearance —
+  are identified as such rather than reported as missing.
+- Editing dimensions, angles and pattern counts in an existing part: the result is written to a new
+  file, reopened from disk and checked, and the original is verified byte-for-byte unchanged.
+- Planning a change to an existing part without a language model, from the model's own parameters.
 
 ### Selection, verification and safety
 
@@ -57,4 +72,6 @@ notes for that build will state its exact scope and tested environment.
   types and sketch definition.
 - Detection of SOLIDWORKS operations that report success without changing the model.
 - Sandboxed output paths, no silent overwrites, and document ownership tracking.
+- A request that could mean more than one dimension is refused rather than resolved on the user's
+  behalf, whether it came from a person or from a language model.
 - SLDPRT save and STEP export.

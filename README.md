@@ -108,7 +108,8 @@ parts measured. CAD Agent is pre-release software; see [Known limitations](#know
 | Features | Boss and cut extrudes with blind, mid-plane, through-all (cuts) and up-to-face end conditions; fillet; chamfer; shell; revolve; mirror |
 | Patterns and references | Linear and circular patterns with editable counts and angles; semantic reference axes, including axes from cylindrical faces |
 | Selection | Guarded edge and face queries that select geometry by what it is, never by index |
-| Models | Existing-model state inspection; parameter modification of models CAD Agent built; save as new versions |
+| Existing parts | Inspect any SOLIDWORKS part, whoever modelled it; say what a phrase means among its dimensions, or refuse when it could mean more than one; change a dimension, an angle or a pattern count and save the result as a new file |
+| Models | State inspection, parameter modification, and versioned saving that never overwrites its source |
 | Output | SLDPRT and STEP export, inside a dedicated output folder |
 | Safety | Plan validation, sandboxed file paths, no silent overwrites, safe document ownership |
 | Desktop | Describe a part, preview the plan, build it, edit its parameters, export STEP |
@@ -122,8 +123,8 @@ The full, versioned list is in [Supported features](docs/supported-features.md).
 | | |
 | --- | --- |
 | **Implemented** | Everything listed under [What works today](#what-works-today) |
-| **In development** | First public build; broader natural-language coverage of the operation catalog; richer relationships between angle parameters; additional face-relative end conditions |
-| **Planned** | Understanding and editing parts CAD Agent did not create; assemblies and drawings; additional export formats; automatic SOLIDWORKS start-up |
+| **In development** | First public build; broader natural-language coverage of the operation catalog; additional face-relative end conditions |
+| **Planned** | Assemblies and drawings; additional export formats; automatic SOLIDWORKS start-up; inferring design intent from geometry somebody else modelled |
 | **Long-term vision** | Technical-drawing and image-assisted reconstruction; phone scan to **editable parametric CAD**; deeper design-intent inference; engineering workflow integrations |
 
 See the [Roadmap](ROADMAP.md) for detail. Long-term items are direction, not commitments.
@@ -147,8 +148,12 @@ Details in [Requirements](docs/requirements.md).
 
 - SOLIDWORKS must already be running; CAD Agent attaches to the running session.
 - Parts only — no assemblies or drawings yet.
-- Parameters can be modified on models CAD Agent created; arbitrary third-party models can be inspected
-  but not yet edited.
+- Editing an existing part reaches its **dimensions, relationships and pattern counts**. Adding or
+  removing features in a part CAD Agent did not create is not supported, and neither is anything that
+  is not a dimension — a material, a mass, a tolerance or an appearance is refused rather than
+  attempted.
+- A request that could mean more than one dimension is refused, with every candidate named. CAD Agent
+  does not choose between them.
 - Millimetres only. Requests in other units are refused rather than converted.
 - The rule-based planner understands plates; broader natural-language requests rely on the
   experimental language-model planner.
