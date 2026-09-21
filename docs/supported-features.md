@@ -15,6 +15,7 @@ available yet; each release's notes will state that build's exact scope.
 | Inspect a part CAD Agent did not create | Features by role, sketches attributed to the features that consume them, every parameter with its kind and the name needed to address it, and a list of what could not be established |
 | Say what a request means | A phrase such as "the hole diameter" is resolved against the model deterministically: one dimension, or a refusal naming every candidate |
 | Change a part CAD Agent did not create | Dimensions, angles and pattern counts, written to a new file; the result is reopened and checked, and the original is verified unchanged |
+| Compare two parts | Features added, removed or suppressed; parameters added, removed, moved or retyped; body count, volume and bounding box. Reads both files and changes neither |
 | Plan preview and dry run | Review and validate a plan without building anything |
 | Plan execution | Deterministic, ordered, stops at the first failure |
 | Verification | Every job is checked against the produced model |

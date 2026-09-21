@@ -142,6 +142,11 @@ is reopened from disk and checked for the value that was asked for, and the orig
 be byte-for-byte what it was before. Three separate answers to three separate questions: did the
 change happen, did it survive being saved, and is the part you started with still intact.
 
+A fourth question remains after any edit, and it is the one a checked value cannot answer: what
+*else* is different. CAD Agent can compare two parts and report it — features that appeared, vanished
+or were suppressed, parameters that moved or changed kind, and the body count, volume and bounding
+box. It reads both files and changes neither.
+
 ## Next
 
 - [Architecture](architecture.md) — the components and the boundaries between them

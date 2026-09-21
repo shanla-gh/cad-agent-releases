@@ -64,6 +64,9 @@ notes for that build will state its exact scope and tested environment.
 - Editing dimensions, angles and pattern counts in an existing part: the result is written to a new
   file, reopened from disk and checked, and the original is verified byte-for-byte unchanged.
 - Planning a change to an existing part without a language model, from the model's own parameters.
+- Comparison of two parts: features added, removed or suppressed, parameters added, removed, moved or
+  retyped, and the body count, volume and bounding box. Answers what else changed, which verifying a
+  single value cannot.
 
 ### Selection, verification and safety
 

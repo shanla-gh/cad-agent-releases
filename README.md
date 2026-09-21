@@ -108,7 +108,7 @@ parts measured. CAD Agent is pre-release software; see [Known limitations](#know
 | Features | Boss and cut extrudes with blind, mid-plane, through-all (cuts) and up-to-face end conditions; fillet; chamfer; shell; revolve; mirror |
 | Patterns and references | Linear and circular patterns with editable counts and angles; semantic reference axes, including axes from cylindrical faces |
 | Selection | Guarded edge and face queries that select geometry by what it is, never by index |
-| Existing parts | Inspect any SOLIDWORKS part, whoever modelled it; say what a phrase means among its dimensions, or refuse when it could mean more than one; change a dimension, an angle or a pattern count and save the result as a new file |
+| Existing parts | Inspect any SOLIDWORKS part, whoever modelled it; say what a phrase means among its dimensions, or refuse when it could mean more than one; change a dimension, an angle or a pattern count and save the result as a new file; compare two parts and see exactly what differs |
 | Models | State inspection, parameter modification, and versioned saving that never overwrites its source |
 | Output | SLDPRT and STEP export, inside a dedicated output folder |
 | Safety | Plan validation, sandboxed file paths, no silent overwrites, safe document ownership |
